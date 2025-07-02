@@ -1,1 +1,156 @@
-<div style="position: relative; width: 100%; height: 0; padding-top: 177.7778%; padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"    src="https://www.canva.com/design/DAGsA1FYeLM/6cRB5SOKna3i8spMvBaBaA/watch?embed" allowfullscreen="allowfullscreen" allow="fullscreen">  </iframe></div><a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGsA1FYeLM&#x2F;6cRB5SOKna3i8spMvBaBaA&#x2F;watch?utm_content=DAGsA1FYeLM&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">Salinan dari Invitation RA</a> oleh really prilly
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Undangan Rahmat & Amelia</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff;
+      overflow-x: hidden;
+    }
+    #opening {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: url('assets/Cover.jpg') no-repeat center center/cover;
+      position: relative;
+      z-index: 10;
+      flex-direction: column;
+    }
+    #openButton {
+      background: maroon;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+.content {
+      display: none;
+      animation: fadeIn 2s ease forwards;
+      text-align: center;
+      padding-bottom: 80px;
+    }
+    .nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: maroon;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 10px;
+      z-index: 100;
+    }
+    .nav img {
+      width: 32px;
+      height: 32px;
+      filter: brightness(100) invert(1);
+    }
+    .popup, .overlay {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+    }
+    .overlay {
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+    }
+.popup {
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%; max-width: 500px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    iframe {
+      width: 100%; height: 500px;
+      border: none;
+    }
+    .flower {
+      position: fixed;
+      top: -50px;
+      width: 30px;
+      height: 30px;
+      background-image: url('assets/flower.png');
+      background-size: cover;
+      animation: fall linear infinite;
+      z-index: 1;
+    }
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0); opacity: 1; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div id="opening">
+    <h2 style="color:white;text-shadow:0 0 10px #000;">Kepada Yth. <span id="guestName">Bapak/Ibu/Saudara/i</span></h2>
+    <button id="openButton">Buka Undangan</button>
+  </div>
+
+<div class="content" id="mainContent">
+    <audio id="bgMusic" loop>
+      <source src="assets/background.mp3" type="audio/mp3">
+    </audio>
+
+    <div class="canva-embed">
+      <div style="position: relative; width: 100%; height: 0; padding-top: 177.7778%; padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
+        <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;" src="https://www.canva.com/design/DAGlgqnkX7g/xwgTmqJM-e_p8ao2hC9NUg/watch?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+      </div>
+      <a href="https://www.canva.com/design/DAGlgqnkX7g/xwgTmqJM-e_p8ao2hC9NUg/watch?utm_content=DAGlgqnkX7g&utm_campaign=designshare&utm_medium=embeds&utm_source=link" target="_blank" rel="noopener" style="text-align:center;display:block;color:maroon;margin-bottom:30px;">Tonton Video Undangan</a>
+    </div>
+
+    <div class="nav">
+      <a href="#rsvp" onclick="openPopup()"><img src="assets/rsvp.png" alt="RSVP"></a>
+    </div>
+  </div>
+
+  <div class="overlay" id="overlay" onclick="closePopup()"></div>
+  <div class="popup" id="popup">
+    <h3 id="rsvp">Konfirmasi Kehadiran</h3>
+    <iframe src="https://forms.gle/hgtJCPxg63aEsHJn6"></iframe>
+    <br><br>
+    <button onclick="closePopup()">Tutup</button>
+  </div>
+
+  <script>
+    const q = new URLSearchParams(window.location.search).get('to');
+    if (q) document.getElementById("guestName").innerText = decodeURIComponent(q);
+
+    document.getElementById("openButton").addEventListener("click", () => {
+      document.getElementById("opening").style.display = "none";
+      document.getElementById("mainContent").style.display = "block";
+      document.getElementById("bgMusic").play();
+    });
+
+function openPopup() {
+      document.getElementById("popup").style.display = "block";
+      document.getElementById("overlay").style.display = "block";
+    }
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+      document.getElementById("overlay").style.display = "none";
+    }
+
+    for (let i = 0; i < 15; i++) {
+      let flower = document.createElement('div');
+      flower.className = 'flower';
+      flower.style.left = Math.random() * 100 + 'vw';
+      flower.style.animationDuration = 5 + Math.random() * 5 + 's';
+      flower.style.animationDelay = Math.random() * 5 + 's';
+      document.body.appendChild(flower);
+    }
+  </script>
+</body>
+</html>
