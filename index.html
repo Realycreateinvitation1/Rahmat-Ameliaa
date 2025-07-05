@@ -31,7 +31,7 @@
 .to {
       margin-top: 400px;
       text-align: center;
-      background-color: rgba(255,255,255,0.8);
+      background-color: rgba(255,255,255,0.85);
       padding: 20px;
       border-radius: 12px;
     }
@@ -73,6 +73,7 @@
       width: 100%;
       height: 100vh;
       border: none;
+      display: block;
     }
   </style>
 </head>
@@ -87,12 +88,17 @@
       <button class="open-btn" onclick="openInvitation()">Buka Undangan</button>
     </div>
   </div>
-
-  <!-- Isi Undangan -->
+<!-- Isi Undangan -->
   <div class="content" id="content">
-    <iframe src="https://www.canva.com/design/DAGsA1FYeLM/view?embed" allowfullscreen loading="lazy"></iframe>
+    <iframe
+      src="https://www.canva.com/design/DAGsA1FYeLM/6cRB5SOKna3i8spMvBaBaA/watch?embed"
+      allow="autoplay"
+      allowfullscreen
+      loading="lazy"
+    ></iframe>
   </div>
-<script>
+
+  <script>
     // Ambil nama tamu dari URL
     function getGuestName() {
       const params = new URLSearchParams(window.location.search);
